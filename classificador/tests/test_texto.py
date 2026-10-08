@@ -22,3 +22,10 @@ def test_texto_so_com_emojis():
 
 def test_espacos_unicos():
     assert limpar("  muito    bom  ") == "muito bom"
+    
+def test_limpar_com_caracteres_especiais():
+    assert limpar("produto @#$%") == "produto"
+    
+def test_texto_vazio_continua_vazio():
+    assert limpar("") == ""
+
