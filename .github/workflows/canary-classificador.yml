@@ -65,6 +65,7 @@ jobs:
         id: analise
         continue-on-error: true
         run: |
+          set -o pipefail
           python classificador/deploy/canary_check.py "${{ steps.trafego.outputs.url }}" \
             --requisicoes ${{ inputs.requisicoes }} | tee analise.txt
           { echo '```'; cat analise.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
